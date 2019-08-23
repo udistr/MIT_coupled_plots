@@ -6,13 +6,12 @@ fileID = fopen('eta.txt');
 x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
+t=datetime(2000,4,15)+3*hours(1:length(x));
+
 figure(1)
-plot(x);
+plot(t,x)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('eta [m]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/TS_ETA
 
 
@@ -21,12 +20,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(2)
-plot(x)
+plot(t,x)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('sst [DegC]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/TS_SST
 
 
@@ -35,12 +31,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(3)
-plot(x)
+plot(t,x)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('theta [DegC]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/TS_THETA
 
 
@@ -49,12 +42,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(4)
-plot(x)
+plot(t,x)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('salt [psu]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/TS_SALT
 
 
@@ -63,12 +53,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(5)
-plot(x)
+plot(t,x)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('sss [DegC]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/TS_SSS
 
 
@@ -77,12 +64,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(6)
-plot(x.*6370000^2*4*pi*0.7021)
+plot(t,x.*6370000^2*4*pi*0.7021)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('area [m^2]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/Ice_TS_AREA
 
 
@@ -95,12 +79,9 @@ x2=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(7)
-plot(x1./x2)
+plot(t,x1./x2)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('heff [m]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/Ice_TS_HEFF
 
 fileID = fopen('heff.txt');
@@ -108,12 +89,9 @@ x=cell2mat(textscan(fileID,'%f'));
 fclose(fileID);
 
 figure(8)
-plot(x.*6370000^2*4*pi*0.7021)
+plot(t,x.*6370000^2*4*pi*0.7021)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('volume [m^3]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/Ice_TS_VOLICE
 
 
@@ -127,11 +105,8 @@ fclose(fileID);
 
 
 figure(9)
-plot(x1./x2)
+plot(t,x1./x2)
 grid on
-xlabel('time [Days from 14/04/2000]')
 ylabel('hsnow [m]')
-set(gca,'xtick',0:intr*nperday:length(x))
-set(gca,'xticklabel',0:intr:length(x))
 print -djpeg figs/Ice_TS_HSNOW
 
